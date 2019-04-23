@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {BrowserRouter, Switch, Route, Link} from "react-router-dom";
+import {BrowserRouter, Switch, Route} from "react-router-dom";
 
 class Login extends Component {
 
@@ -7,8 +7,16 @@ class Login extends Component {
         return (
             <div>
                 Page de login<br />
-                <a href="/register">créer un compte</a><br />
-                <Link to={'/register'}>About page</Link>
+
+                <form method="post" action="">
+                    <input type="text" name="pseudo" placeholder="Pseudo" />
+                    <br /><br />
+                    <input type="password" name="password" placeholder="Password" />
+                    <br /><br />
+                    <input type="submit" name="subConnect" value="Connection" />
+                </form>
+
+                <a href="/register">créer un compte</a>
             </div>
         );
     }
