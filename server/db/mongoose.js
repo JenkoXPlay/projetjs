@@ -30,7 +30,7 @@ const quizSchema = Schema({
 const qrSchema = Schema({
   quiz: String,
   question: String,
-  reponses: String[{
+  reponses: [{
     reponse: String,
     good: Boolean
   }]
@@ -40,10 +40,10 @@ const qrSchema = Schema({
 const Users = mongoose.model('Users', usersSchema);
 const Scores = mongoose.model('Scores', scoresSchema);
 const Quiz = mongoose.model('Quiz', quizSchema);
-const QR = mongoose.model('QR', qrSchema);
+const QuesRep = mongoose.model('QuesRep', qrSchema);
 
 module.exports = {};
 module.exports.users = Users;
 module.exports.scores = Scores;
 module.exports.quiz = Quiz;
-module.exports.qr = QR;
+module.exports.quesrep = QuesRep;
