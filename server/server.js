@@ -2,7 +2,7 @@ const express = require("express");
 const router = require('./router');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const register = require('./function/register');
+const user = require('./function/user');
 
 const app = express();
 
@@ -16,7 +16,10 @@ app.use(urlencodedParser);
 app.use(bodyParser.json());
 
 // création des routes pour la bdd
-app.use('/register', register.register);
+app.post('/register', user.register);
+app.get('/user', user.getAll);
+app.get('/user/:id', user.getId);
+app.delete('/user/:id', user.deleteOne);
 
 app.use(cors());
 app.use(router).listen(port, () => console.log('Example app listening on port ' + port));
