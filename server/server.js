@@ -19,6 +19,7 @@ app.use(bodyParser.json());
 app.post('/register', user.register);
 app.get('/user', user.getAll);
 app.get('/user/:id', user.getId);
+app.get('/pseudo/:pseudo', user.getPseudo);
 app.delete('/user/:id', user.deleteOne);
 
 app.use(cors());

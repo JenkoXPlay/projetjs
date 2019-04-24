@@ -29,6 +29,9 @@ class Register extends Component {
         if (this.state.subRegister !== false){
             if (this.state.pseudo !== "" && this.state.password !=="" && this.state.rp_password !==""){
                 if (this.state.password === this.state.rp_password){
+                    /*
+                        Grâce à une requête vérifier si le pseudo est présent, si oui alors erreur sinon sendUser
+                    */
                     const sendUser = axios.post('http://localhost:8081/register', { pseudo: this.state.pseudo, password: this.state.password });
 
                 } else error = <font color='red'>Les mots de passes ne sont pas identiques</font>  

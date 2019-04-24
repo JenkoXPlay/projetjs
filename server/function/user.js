@@ -55,6 +55,20 @@ function getId(req, res) {
     });
 }
 
+function getPseudo(req, res) {
+    User.find({ pseudo: req.params.pseudo }, function (err, data) {
+        if (err) {
+            return res.status(500).send("Erreur interne");
+        } else {
+            if (data) {
+                return res.status(200).json(data);
+            } else {
+                return res.status(400).send("Pseudo introuvable");
+            }
+        }
+    });
+}
+
 function deleteOne(req, res) {
     User.findByIdAndRemove(req.params.id, function (err, data) {
         if (err) {
@@ -73,3 +87,4 @@ exports.register = register;
 exports.getAll = getAll;
 exports.getId = getId;
 exports.deleteOne = deleteOne;
+exports.getPseudo = getPseudo;
