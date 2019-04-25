@@ -69,6 +69,20 @@ function getPseudo(req, res) {
     });
 }
 
+function updateOne(req, res) {
+    User.findOneAndUpdate({ _id: req.params.id }, req.body, function (err, data) {
+        if (err) {
+            return res.status(500).send("Erreur interne");
+        } else {
+            if (data) {
+                return res.status(200).json(req.body);
+            } else {
+                return res.status(400).send("ID introuvable");
+            }
+        }
+    });
+}
+
 function deleteOne(req, res) {
     User.findByIdAndRemove(req.params.id, function (err, data) {
         if (err) {
@@ -88,3 +102,4 @@ exports.getAll = getAll;
 exports.getId = getId;
 exports.deleteOne = deleteOne;
 exports.getPseudo = getPseudo;
+exports.updateOne = updateOne;

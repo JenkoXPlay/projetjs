@@ -18,21 +18,20 @@ const usersSchema = Schema({
 
 const scoresSchema = Schema({
   quiz: String,
-  user: String
+  user: String,
+  score: String
 });
 
 const quizSchema = Schema({
   name: String,
   icon: String,
-  creator: String
-});
-
-const qrSchema = Schema({
-  quiz: String,
-  question: String,
-  reponses: [{
-    reponse: String,
-    good: Boolean
+  creator: String,
+  questions: [{
+    question: String,
+    reponses: [{
+      reponse: String,
+      good: Boolean
+    }]
   }]
 });
 
@@ -40,10 +39,8 @@ const qrSchema = Schema({
 const Users = mongoose.model('Users', usersSchema);
 const Scores = mongoose.model('Scores', scoresSchema);
 const Quiz = mongoose.model('Quiz', quizSchema);
-const QuesRep = mongoose.model('QuesRep', qrSchema);
 
 module.exports = {};
 module.exports.users = Users;
 module.exports.scores = Scores;
 module.exports.quiz = Quiz;
-module.exports.quesrep = QuesRep;
